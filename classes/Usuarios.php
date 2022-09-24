@@ -18,7 +18,7 @@ class Usuarios
 		if ($sql->rowCount() > 0) {
 			$informacoesusuario = $sql->fetch();
 			$_SESSION['idusuario'] = $informacoesusuario['id'];
-			header("Location: index.php");
+			header("Location: armario.php");
 		} else {
 			$_SESSION['error'] = "Usuário e/ou senha inválidos!";
 			return false; // não encontrou nenhum usuário

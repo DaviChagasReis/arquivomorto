@@ -28,9 +28,11 @@ function pesquisa(palavra){
             html+= "<td>"+(json[i]['status'])+"</td>";
             html+= "<td>"+(json[i]['descricao'])+"</td>";
             html+= "<td><a href='armario/editar.php?id="+(json[i]['id'])+"' class='btn btn-warning'>Editar</a></td>";
-            if(html+= "<td><a href='armario/desativar.php?id="+(json[i]['id'])+"&status="+(json[i]['status'])+"' class=' btn btn-danger'>Desativar</a></td>");
-
-            if(html+= "<td><a href='armario/desativar.php?id="+(json[i]['id'])+"&status="+(json[i]['status'])+"' class=' btn btn-success'>Ativar</a></td>");            
+            if((json[i]['status']) == 0){
+                html+= "<td><a href='armario/desativar.php?id="+(json[i]['id'])+"&status="+(json[i]['status'])+"' class=' btn desativar btn-danger'>Desativar</a></td>";
+            }else{(json[i]['status']) == 1
+                html+= "<td><a href='armario/desativar.php?id="+(json[i]['id'])+"&status="+(json[i]['status'])+"' class=' btn ativar btn-success'>Ativar</a></td>";
+            }
            html+= "</tr>";
            }
            console.log(html);
@@ -61,9 +63,12 @@ function listar(){
                 html+= "<td>"+(json[i]['status'])+"</td>";
                 html+= "<td>"+(json[i]['descricao'])+"</td>";
                 html+= "<td><a href='armario/editar.php?id="+(json[i]['id'])+"' class='btn btn-warning'>Editar</a></td>";
-                    if(html+= "<td><a href='armario/desativar.php?id="+(json[i]['id'])+"&status="+(json[i]['status'])+"' class=' btn btn-danger'>Desativar</a></td>");
+                if((json[i]['status']) == 0){
+                    html+= "<td><a href='armario/desativar.php?id="+(json[i]['id'])+"&status="+(json[i]['status'])+"' class=' btn desativar btn-danger'>Desativar</a></td>";
+                }else{(json[i]['status']) == 1
+                    html+= "<td><a href='armario/desativar.php?id="+(json[i]['id'])+"&status="+(json[i]['status'])+"' class=' btn ativar btn-success'>Ativar</a></td>";
+                }
 
-                    if(html+= "<td><a href='armario/desativar.php?id="+(json[i]['id'])+"&status="+(json[i]['status'])+"' class=' btn btn-success'>Ativar</a></td>");
                 html+="</tr>";
 
             }
@@ -74,4 +79,3 @@ function listar(){
         }
     });
 }
-// html+= "<td><a href='armario/desativar.php?id="+(json[i]['id'])+"&status="+(json[i]['status'])+"' class=' btn btn-success'>Ativar</a></td>"; 
